@@ -1,0 +1,9 @@
+.logo {
+  border: none;
+  background-color: #20c1d5;
+}
+
+.active {
+  background: #20c1d5 !important;
+}
+

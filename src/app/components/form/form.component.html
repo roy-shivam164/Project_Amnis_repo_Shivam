@@ -1,0 +1,195 @@
+<form>
+  <div class="container-fluid overflow-auto" style="height: 90vh">
+    <div class="row overflow-auto">
+      <div class="col-12 overflow-auto">
+        <div class="form-modal">
+          <h2 class="header">Scheduler</h2>
+          <div id="customer-data-form">
+            <form id="cust-data">
+              <div id="radioBtn">
+                <!-- <mat-checkbox color="primary" #email (change)="onChnageEmailCheck(email.checked)">
+                  Email
+                </mat-checkbox>
+                <mat-checkbox color="primary" #sms (change)="onChnageSmsCheck(sms.checked)">
+                  SMS
+                </mat-checkbox> -->
+                <mat-radio-group
+                  aria-label="Select an option"
+                  [(ngModel)]="containerValue"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <mat-radio-button
+                    color="primary"
+                    value="email"
+                    (change)="radioChange($event)"
+                    >Email
+                  </mat-radio-button>
+                  <mat-radio-button
+                    color="primary"
+                    value="sms"
+                    (change)="radioChange($event)"
+                    >Sms
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <br />
+              <br />
+
+              <div
+                class="d-flex flex-column justify-content-center"
+                *ngIf="containerValue == 'email'; else showSms"
+              >
+                <label>Email Template Name</label>
+                <!-- <input id="email_template_id" type="text" required /> -->
+
+                <!-- <i class="bi bi-table"></i> -->
+                <select
+                  class="form-select"
+                  #templates
+                  id="templates"
+                  (change)="getSelection(templates.value, templates)"
+                >
+                  <option value="select" default>
+                    Select a Email Template Name
+                  </option>
+                  <option
+                    [value]="data.emailTemplateId"
+                    *ngFor="let data of templateData"
+                  >
+                    {{ data.description }}
+                  </option>
+                </select>
+                <label>Email Template Id</label>
+                <input
+                  type="text"
+                  disabled
+                  [value]="templateIdSelected"
+                  style="color: black"
+                />
+
+                <label>Email schedule date</label>
+                <input
+                  id="schedule_time"
+                  type="datetime-local"
+                  [(ngModel)]="scheduleDate"
+                  [ngModelOptions]="{ standalone: true }"
+                  [min]="todayDate"
+                  (change)="validateDate()"
+                  required
+                />
+                <h3>Customer Filter Criteria</h3>
+                <hr />
+                <br />
+
+                <label>Query Name</label>
+
+                <select
+                  class="form-select"
+                  #query
+                  id="query"
+                  (change)="getSelection(query.value, query)"
+                >
+                  <option value="select" default>Select a query</option>
+                  <option [value]="data.query" *ngFor="let data of queryData">
+                    {{ data.queryName }}
+                  </option>
+                </select>
+
+                <label>Query</label>
+                <textarea
+                  class="query"
+                  cols="50"
+                  rows="2"
+                  type="text"
+                  disabled
+                  [value]="selectedQuery"
+                  style="color: black"
+                ></textarea>
+              </div>
+
+              <ng-template #showSms>
+                <label>SMS Template Name</label>
+                <select
+                  class="form-select"
+                  #sms
+                  id="sms"
+                  (change)="getSelection(sms.value, sms)"
+                >
+                  <option value="select" default>
+                    Select a SMS template Name
+                  </option>
+                  <option
+                    *ngFor="let data of smsData"
+                    [value]="data.SmsTemplateId"
+                  >
+                    {{ data.description }}
+                  </option>
+                </select>
+                <label>Text Message</label>
+                <input
+                  type="text"
+                  disabled
+                  [value]="textMsg"
+                  style="color: black"
+                />
+
+                <label>SMS schedule date</label>
+                <input
+                  type="datetime-local"
+                  [(ngModel)]="scheduleDate"
+                  [ngModelOptions]="{ standalone: true }"
+                  [min]="todayDate"
+                  (change)="validateDate()"
+                  required
+                />
+
+                <h3>Customer Filter Criteria</h3>
+                <hr />
+                <br />
+                <label>Query Name</label>
+                <select
+                  class="form-select"
+                  #query
+                  id="query"
+                  (change)="getSelection(query.value, query)"
+                >
+                  <option value="select" default>Select a query</option>
+                  <option [value]="data.query" *ngFor="let data of queryData">
+                    {{ data.queryName }}
+                  </option>
+                </select>
+                <label>Query</label>
+                <textarea
+                  class="query"
+                  cols="30"
+                  rows="2"
+                  type="text"
+                  disabled
+                  [value]="selectedQuery"
+                ></textarea>
+              </ng-template>
+
+              <button
+                type="submit"
+                id="resultDivContainer"
+                class="btn submit"
+                (click)="
+                  $event.stopPropagation();
+                  validateEmptyField()
+                    ? submit()
+                    : this.notification.error(
+                        'Please fill all the mandatory fields '
+                      )
+                "
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+          <span id="success-message" class="message success"></span>
+          <span id="error-message" class="message error"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

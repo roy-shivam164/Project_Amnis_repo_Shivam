@@ -1,0 +1,5 @@
+<h1 mat-dialog-title>Confirm Delete ?</h1>
+<div mat-dialog-actions>
+    <button mat-button (click)="onDialogClose()"><mat-icon style="color: red;">clear</mat-icon></button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial><mat-icon style="color: green;">done</mat-icon></button>
+  </div>
