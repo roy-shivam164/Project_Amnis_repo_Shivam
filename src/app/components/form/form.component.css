@@ -14,7 +14,7 @@ input[type="datetime-local"] {
 
 .header {
   padding: 1rem 0 1rem 0;
-  background-color: #20C1D5;
+  background-color: #20c1d5;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
@@ -23,7 +23,7 @@ input[type="datetime-local"] {
 
 .form-modal {
   position: relative;
-  width: 40%;
+  width: 50%;
   height: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -56,12 +56,12 @@ input[type="datetime-local"] {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
-/* .radio-btn{
-    color: #20C1D5;
-} */
+#radio-btn {
+  color: #20c1d5 !important;
+}
 
 .form-modal .submit {
-  background: #20C1D5;
+  background: #20c1d5;
   color: rgb(228, 224, 224);
 }
 

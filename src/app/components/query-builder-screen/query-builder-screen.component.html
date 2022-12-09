@@ -1,1 +1,27 @@
-<p>query-builder-screen works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <!-- <app-navbar (navigate)="chengeTab($event)"></app-navbar> -->
+    <div class="col-9">
+      <query-builder-custom
+        (getHistory)="getHistoryData($event)"
+        (getSchema)="getScehma($event)"
+      ></query-builder-custom>
+    </div>
+    <div class="col-3">
+      <app-query-history
+        [queryHistorydata]="queryHistoryData"
+        [tableSchema]="tableSchema"
+        (runQuery)="runQuery($event)"
+      ></app-query-history>
+    </div>
+  </div>
+  <!-- <div class="row">
+        <app-navbar (navigate)="chengeTab($event)"></app-navbar>
+        <div  *ngIf="isPageSelected == 'query-builder' ">
+            <query-builder-custom (getHistory)="getHistoryData($event)"></query-builder-custom>
+        </div>
+        <div *ngIf="isPageSelected == 'recent-queries' ">
+            <app-query-history [queryHistorydata]="queryHistoryData" ></app-query-history>
+        </div>
+    </div> -->
+</div>

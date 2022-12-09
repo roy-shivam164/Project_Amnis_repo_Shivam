@@ -7,6 +7,7 @@ import { TypographyComponent } from "../../typography/typography.component";
 import { IconsComponent } from "../../icons/icons.component";
 import { FormComponent } from "app/components/form/form.component";
 import { CampaignBuilderComponent } from "app/components/campaign-builder/campaign-builder.component";
+import { QueryBuilderScreenComponent } from "app/components/query-builder-screen/query-builder-screen.component";
 
 export const AdminLayoutRoutes: Routes = [
   // {
@@ -52,7 +53,7 @@ export const AdminLayoutRoutes: Routes = [
   //     }]
   // }
   { path: "dashboard", component: DashboardComponent },
-  { path: "user-profile", component: UserProfileComponent },
+  { path: "querybuilder", component: QueryBuilderScreenComponent },
   { path: "scheduler", component: FormComponent },
   { path: "campaignbuilder", component: CampaignBuilderComponent },
   { path: "icons", component: CampaignBuilderComponent },

@@ -1,1 +1,5 @@
-<p>query-result-dialog works!</p>
+<h1 mat-dialog-title>Query Result</h1>
+<div mat-dialog-content *ngIf="data"></div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="dialogRef.close()">Close</button>
+</div>

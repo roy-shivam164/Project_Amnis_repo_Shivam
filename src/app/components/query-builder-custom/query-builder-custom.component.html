@@ -1,1 +1,146 @@
-<p>query-builder-custom works!</p>
+
+<div class="container-fluid" style="height:85vh">
+    <!-- <div class="row">
+        <div class="db-configs">
+            <div class="card">
+                <h2 class="card-header">DB Credentials</h2>
+                <div class="card-body">
+                    <mat-form-field class="db-config-form-field" appearance="fill">
+                        <mat-label>DB Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="db">
+                    </mat-form-field>
+                    <mat-form-field class="db-config-form-field" appearance="fill">
+                        <mat-label>Host</mat-label>
+                        <input matInput type="text" [(ngModel)]="host">
+                    </mat-form-field>
+                    <mat-form-field class="db-config-form-field" appearance="fill">
+                            <mat-label>Username</mat-label>
+                        <input matInput type="text" [(ngModel)]="username">
+                    </mat-form-field>
+                    <mat-form-field class="db-config-form-field" appearance="fill">
+                            <mat-label>Password</mat-label>
+                        <input matInput type="text" [(ngModel)]="password">
+                    </mat-form-field>
+                    <mat-form-field class="db-config-form-field" appearance="fill">
+                            <mat-label>Port</mat-label>
+                        <input matInput type="text" [(ngModel)]="port">
+                    </mat-form-field>
+                    <button id="get-table-button" type="button" mat-raised-button color="primary" (click)="getSchemas()">
+                        Get Tables
+                      </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr> -->
+    <div class="row">
+        <div class="db-configs">
+            <div class="card">
+                <h2 class="card-header">Sync With Database</h2>
+                <div class="card-body d-flex justify-content-center">
+                    <button mat-raised-button type="button" color="primary" (click)="getSchemas()"><span class="button-text">Get Database Schemas</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="select-table-field">
+            <div class="card">
+                <h2 class="card-header">Select Table</h2>
+                <div class="card-body d-flex justify-content-center">
+                    <mat-form-field appearance="fill" class="select-table-form-field">
+                        <mat-label>Choose Schema</mat-label>
+                        <mat-select [disabled]="schemaData?false:true" [(ngModel)]="tableSchema" (selectionChange)="getTables()">
+                          <mat-option value="{{schema.SCHEMA_NAME}}" *ngFor="let schema of schemaData">{{schema.SCHEMA_NAME}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    <mat-form-field appearance="fill" class="select-table-form-field">
+                        <mat-label>Choose Table</mat-label>
+                        <mat-select [disabled]="tablesData.length == 0" [(ngModel)]="tableSelected" (selectionChange)="getColumns()">
+                          <mat-option value="{{table.TABLE_NAME}}" *ngFor="let table of tablesData">{{table.TABLE_NAME}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: 30%;padding:5px" >
+            <div class="card" *ngIf="selectedTableColumns" style="height:100%">
+                <h2 class="card-header" style="margin: 0;">Select Columns</h2>
+                <div class="column-data card-body" >
+                    <!-- <div *ngFor="let column of selectedTableColumns">
+                        <mat-form-field>
+                            <mat-label>{{column.COLUMN_NAME}}</mat-label>
+                            <input type="text" matInput value="{{column.COLUMN_NAME}}" hidden>
+                        </mat-form-field>
+                    </div> -->
+                    <div *ngFor ="let item of selectedTableColumns" class ="select-columns">
+                            <!-- <mat-checkbox #checkBox [value]="item.COLUMN_NAME" (change)="getCheckbox(checkBox)" checked="true">  
+                                 {{item.COLUMN_NAME}} 
+                            </mat-checkbox> -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="column-label">{{item.COLUMN_NAME}}hhhhhhhhhhhhhhh</label>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <input type="checkbox" #checkBox [value]="item.COLUMN_NAME" (change)="getCheckbox(checkBox)" checked="true">
+                                </div>
+                            </div>
+                   </div>
+                </div>
+            </div>
+
+    </div>
+    <div class="row query-builder-row">
+            <div *ngIf="queryBuilderShow" >
+                <div class="card">
+                    <h2 class="card-header">Filter Criteria</h2>
+                    <div class="card-body" class="query-builder">
+                        <query-builder [(ngModel)]='query' [config]='config' [allowCollapse]="true"></query-builder>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div id="generate-query-button">
+            <button  type="button" mat-raised-button color="primary" (click)="generateQuery()" [disabled]="tableSelected != null ? false : true">
+               <span class="button-text">Generate Query</span> 
+              </button>
+        </div>
+    </div>
+    <div class="row result-row">
+        <div class="result card" *ngIf="resultantQuery">
+            <div class="card-header">
+                
+                <div class="icons">
+                    <h2>Generated SQL query</h2>
+                    <mat-icon aria-hidden="false" aria-label="Copy icon" class="generate-query-icon copy-icon" (click)="copyToClipboard()">file_copy</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Save icon" class="generate-query-icon save-icon" (click)="openDialogSave()">save</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Run icon" class="generate-query-icon run-icon" (click)="runAndDisplayQuery(resultantQuery)" >play_arrow</mat-icon>
+                </div>
+            </div>
+            <div class="card-body overflow-auto">
+                <pre style="padding: 10px;"><p class="resultText"  #sqlQuery>{{resultantQuery | sqlFormat}}</p></pre>
+            </div>
+        </div> 
+    </div> 
+    <div class="row row-query-execute" *ngIf="executeCardShow">
+        <h2 class="card-header">SQL execution result</h2>
+        <div class="card-body table-responsive overflow-auto result-table" >
+                <table class="table table-striped table-hover" *ngIf="data.length">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let column of tableColumnResult" scope="col">
+                                {{column}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let rowData of data">
+                            <td *ngFor="let item of rowData | keys" scope="row">{{rowData[item]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>

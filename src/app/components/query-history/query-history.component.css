@@ -1,0 +1,29 @@
+/* .container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+} */
+.history-list {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+.green-icon {
+  color: green;
+}
+.grey-icon {
+  color: #87ceeb;
+}
+.red-icon {
+  color: red;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-list-card {
+  padding: 1px;
+}
+.text-query {
+  word-break: break-word;
+}

@@ -1,1 +1,66 @@
-<p>query-history works!</p>
+<div class="container-fluid" style="height: 85vh">
+  <p>
+    <mat-toolbar>
+      <span>Saved Queries</span>
+    </mat-toolbar>
+  </p>
+  <div class="history-list overflow-auto" *ngIf="queryHistorydata">
+    <div
+      *ngFor="
+        let item of queryHistorydata
+          | paginate
+            : {
+                id: 'queryListPages',
+                itemsPerPage: 10,
+                currentPage: currentPage,
+                totalItems: queryHistorydata.length
+              }
+      "
+    >
+      <div class="history-list-card">
+        <mat-card>
+          <p class="text-query" #sqlQuery>{{ item.queryName }}</p>
+          <mat-card-actions>
+            <div class="justify-content-between d-flex">
+              <button mat-icon-button (click)="queryRunAndDisplay(item)">
+                <mat-icon class="green-icon" style="font-size: 20px"
+                  >play_arrow</mat-icon
+                >
+              </button>
+              <button mat-icon-button (click)="copyToClipboard(item)">
+                <mat-icon class="grey-icon" style="font-size: 20px"
+                  >file_copy</mat-icon
+                >
+              </button>
+              <button mat-icon-button (click)="openDialogDelete(item)">
+                <mat-icon class="red-icon" style="font-size: 20px"
+                  >delete</mat-icon
+                >
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <!-- <button mat-button>
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+        <div class="pages">
+            {{currentPage}}/{{queryHistorydata ? queryHistorydata.length % pageSize != 0 ? queryHistorydata.length / pageSize + 1 : queryHistorydata.length / pageSize : 1}}
+        </div>
+        <button mat-button>
+            <mat-icon>navigate_next</mat-icon>
+        </button> -->
+    <div class="queryListPages">
+      <pagination-controls
+        id="queryListPages"
+        (pageChange)="currentPage = $event"
+        [directionLinks]="true"
+        [maxSize]="5"
+        [autoHide]="true"
+      ></pagination-controls>
+    </div>
+  </div>
+</div>

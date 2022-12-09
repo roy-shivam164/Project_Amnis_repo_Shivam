@@ -1,1 +1,19 @@
-<p>save-query-dialog works!</p>
+<h1 mat-dialog-title>Enter Query Name</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Query Name</mat-label>
+    <input matInput [(ngModel)]="data.name" required />
+    <!-- <mat-error *ngIf="nameControl.errors">Query name is required</mat-error> -->
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onDialogClose()">Close</button>
+  <button
+    mat-button
+    [mat-dialog-close]="data.name"
+    [disabled]="!data.name"
+    cdkFocusInitial
+  >
+    Save
+  </button>
+</div>

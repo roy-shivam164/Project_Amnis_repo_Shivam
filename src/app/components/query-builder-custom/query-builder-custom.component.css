@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  padding: 1%;
+}
+h2 {
+  color: white;
+}
+.card-body {
+  padding: 5px;
+}
+.db-configs {
+  padding: 5px;
+  overflow: auto;
+}
+.select-table-field {
+  padding: 5px;
+}
+.select-table-columns {
+  padding: 5px;
+}
+.select-table-form-field {
+  padding: 0.5%;
+}
+.db-config-form-field {
+  padding: 0.5%;
+}
+.get-table-button {
+  height: 100%;
+}
+
+.query-builder {
+  padding: 5px;
+}
+.card-header {
+  color: #fff;
+  text-align: center;
+  background-color: #08042b;
+}
+.run-icon:hover {
+  color: green;
+}
+.copy-icon:hover {
+  color: green;
+}
+.save-icon:hover {
+  color: green;
+}
+
+.checkbox-list {
+  border: 1x Solid black;
+  padding: 1%;
+}
+.result {
+  border: 1px solid black;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  height: 100%;
+}
+.column-data {
+  height: 100%;
+  overflow: auto;
+  flex: 1;
+}
+.copy-icon:hover {
+  color: green;
+}
+.generate-query-icon {
+  float: right;
+  cursor: pointer;
+  text-shadow: 0 0 10px black;
+  margin-right: 1%;
+}
+#generate-query-button {
+  padding: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.column-label {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+input[type="checkbox"] {
+  accent-color: green;
+  width: 100%;
+  cursor: pointer;
+}
+.select-columns {
+  padding: 1%;
+  margin-top: 5px;
+  background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue;
+}
+.result-row {
+  padding: 5px;
+  height: 40%;
+}
+.query-builder-row {
+  padding: 5px;
+}
+h2 {
+  display: inline;
+}
+.icons {
+  vertical-align: middle;
+}
+.row-query-execute {
+  padding: 5px;
+  height: 50%;
+}
+.result-table {
+  height: 100%;
+}
+.button-text {
+  padding: 10px;
+}
