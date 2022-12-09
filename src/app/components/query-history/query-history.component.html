@@ -1,6 +1,14 @@
-<div class="container-fluid" style="height: 85vh; margin-top: 34%">
+<div
+  class="container-fluid history-box"
+  style="
+    height: 62%;
+    margin-top: 34%;
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+  "
+>
   <p>
-    <mat-toolbar>
+    <mat-toolbar class="card-header">
       <span>Saved Queries</span>
     </mat-toolbar>
   </p>
@@ -19,7 +27,9 @@
     >
       <div class="history-list-card">
         <mat-card>
-          <p class="text-query" #sqlQuery>{{ item.queryName }}</p>
+          <p class="text-query" #sqlQuery>
+            {{ item.queryName }}
+          </p>
           <mat-card-actions>
             <div class="justify-content-between d-flex">
               <button mat-icon-button (click)="queryRunAndDisplay(item)">

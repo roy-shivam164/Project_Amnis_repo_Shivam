@@ -7,6 +7,15 @@
   flex-grow: 1;
   overflow-y: scroll;
 }
+.card-header {
+  background-color: #20c1d5 !important;
+  border-radius: 3% !important;
+  border: none;
+}
+.history-box {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+  background-color: whitesmoke;
+}
 .green-icon {
   color: green;
 }
