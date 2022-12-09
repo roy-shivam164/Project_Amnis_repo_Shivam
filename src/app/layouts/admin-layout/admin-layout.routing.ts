@@ -8,6 +8,7 @@ import { IconsComponent } from "../../icons/icons.component";
 import { FormComponent } from "app/components/form/form.component";
 import { CampaignBuilderComponent } from "app/components/campaign-builder/campaign-builder.component";
 import { QueryBuilderScreenComponent } from "app/components/query-builder-screen/query-builder-screen.component";
+import { LoginComponent } from "app/components/login/login.component";
 
 export const AdminLayoutRoutes: Routes = [
   // {
@@ -59,5 +60,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "icons", component: CampaignBuilderComponent },
   // { path: 'maps',           component: MapsComponent },
   // { path: 'notifications',  component: NotificationsComponent },
-  // { path: 'upgrade',        component: UpgradeComponent },
+  { path: "signout", component: LoginComponent },
 ];

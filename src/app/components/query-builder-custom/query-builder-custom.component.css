@@ -6,6 +6,17 @@
 .container {
   padding: 1%;
 }
+#sync-db {
+  margin-top: 10%;
+  margin-left: 7%;
+  width: 100%;
+}
+#select-table {
+  margin: auto;
+  width: 100%;
+  display: flex;
+}
+
 h2 {
   color: white;
 }

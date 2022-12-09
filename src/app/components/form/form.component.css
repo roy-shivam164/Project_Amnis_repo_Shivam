@@ -23,7 +23,7 @@ input[type="datetime-local"] {
 
 .form-modal {
   position: relative;
-  width: 50%;
+  width: 45%;
   height: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -71,6 +71,9 @@ h3 {
 
 hr {
   border: 1px solid black;
+}
+form {
+  margin-top: 5%;
 }
 
 .form-modal form {
