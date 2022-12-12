@@ -1,10 +1,7 @@
 import { Routes } from "@angular/router";
 
 import { DashboardComponent } from "../../dashboard/dashboard.component";
-import { UserProfileComponent } from "../../user-profile/user-profile.component";
-import { TableListComponent } from "../../table-list/table-list.component";
-import { TypographyComponent } from "../../typography/typography.component";
-import { IconsComponent } from "../../icons/icons.component";
+
 import { FormComponent } from "app/components/form/form.component";
 import { CampaignBuilderComponent } from "app/components/campaign-builder/campaign-builder.component";
 import { QueryBuilderScreenComponent } from "app/components/query-builder-screen/query-builder-screen.component";
@@ -57,7 +54,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "querybuilder", component: QueryBuilderScreenComponent },
   { path: "scheduler", component: FormComponent },
   { path: "campaignbuilder", component: CampaignBuilderComponent },
-  { path: "icons", component: CampaignBuilderComponent },
+  { path: "analytics", component: CampaignBuilderComponent },
   // { path: 'maps',           component: MapsComponent },
   // { path: 'notifications',  component: NotificationsComponent },
   { path: "signout", component: LoginComponent },

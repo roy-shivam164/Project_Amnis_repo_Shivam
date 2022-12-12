@@ -5,4 +5,5 @@
   text-align: center;
   width: 90%;
   border: 0;
+  box-sizing: border-box;
 }

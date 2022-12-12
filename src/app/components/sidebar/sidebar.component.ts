@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
-    path: "/icons",
+    path: "/analytics",
     title: "Analytics",
     icon: "signal_cellular_alt",
     class: "",
