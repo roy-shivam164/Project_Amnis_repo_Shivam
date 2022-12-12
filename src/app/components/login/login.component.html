@@ -7,28 +7,66 @@
             <h3 class="pt-5 font-weight-bold">Login</h3>
           </div>
           <div class="panel-body p-3">
-            <!-- <form [formGroup] = "loginForm">
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-user p-2"></span>
-                                    <input formControlName="UserEmail" type="email" placeholder="Email Id">
-                                </div>
-                            </div>
-                            <small *ngIf= "loginForm.controls['UserEmail'].dirty && loginForm.hasError('required','UserEmail')" class="text-danger">*Email is required</small>
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-lock p-2"></span>
-                                    <input formControlName="Password" [type]= "type" placeholder="Password">
-                                    <span (click)= "hideShowPass()"  class="fa {{eyeIcon}}"></span>
-                                </div>
-                            </div>
-                            <small *ngIf= "loginForm.controls['Password'].dirty && loginForm.hasError('required','Password')"class="text-danger">*Valid password is required</small>
-                            <div class="form-inline fr mt-4">
-                                <a class="font-weight-bold" id="forget">Forget Password?</a>
-                            </div>
-                            <button  type="submit" class="btn btn-primary btn-block mt-5 w-100">Login</button>
-                            <div class="text-center pt-7 text-muted">Don't have an account? <a id="forget" routerLink="/signup">Sign Up</a></div>
-                        </form> -->
+            <form [formGroup]="loginForm">
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <span class="fa fa-user iconColor" id="emailId"></span>
+                  <input
+                    formControlName="UserEmail"
+                    type="email"
+                    placeholder="Email Id"
+                  />
+                </div>
+              </div>
+              <small
+                *ngIf="
+                  loginForm.controls['UserEmail'].dirty &&
+                  loginForm.hasError('required', 'UserEmail')
+                "
+                class="text-danger"
+                >*Email is required</small
+              >
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <span class="fa fa-lock p-2 iconColor"></span>
+                  <input
+                    formControlName="Password"
+                    [type]="type"
+                    placeholder="Password"
+                  />
+                  <span
+                    (click)="hideShowPass()"
+                    class="fa {{ eyeIcon }} iconColor"
+                  ></span>
+                </div>
+              </div>
+              <small
+                *ngIf="
+                  loginForm.controls['Password'].dirty &&
+                  loginForm.hasError('required', 'Password')
+                "
+                class="text-danger"
+                >*Valid password is required</small
+              >
+              <div class="form-inline fr mt-4">
+                <a class="font-weight-bold iconColor" id="forget"
+                  >Forget Password?</a
+                >
+              </div>
+              <button
+                type="submit"
+                class="btn btn-block mt-5 w-100"
+                id="submitBtn"
+              >
+                Login
+              </button>
+              <div class="text-center pt-7 text-muted">
+                Don't have an account?
+                <a id="forget" class="iconColor" routerLink="/signup"
+                  >Sign Up</a
+                >
+              </div>
+            </form>
           </div>
           <!-- <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3">

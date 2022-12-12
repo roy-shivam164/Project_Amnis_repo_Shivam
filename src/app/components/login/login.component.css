@@ -1,5 +1,11 @@
 .outer {
-  height: 100vh;
+  height: 100%;
+
+  margin: 10% auto;
+  box-sizing: border-box;
+}
+#submitBtn {
+  background-color: #20c1d5 !important;
 }
 .panel-heading {
   text-align: center;
@@ -30,6 +36,9 @@ a:hover {
   border-radius: 12px;
   margin-top: auto;
 }
+#emailId {
+  padding: 0 2%;
+}
 .input-field {
   border-radius: 5px;
   padding: 5px;
@@ -38,6 +47,9 @@ a:hover {
   cursor: pointer;
   border: 1px solid #ddd;
   color: #4343ff;
+}
+.iconColor {
+  color: #20c1d5 !important;
 }
 .input-field.error {
   border: 1px solid red;
