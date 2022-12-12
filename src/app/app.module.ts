@@ -93,6 +93,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SaveQueryDialogComponent,
     DeleteDialogComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })
