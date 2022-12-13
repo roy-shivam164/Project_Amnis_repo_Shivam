@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: "http://localhost:1881/",
+  // baseApiUrl: "http://localhost:1881/",
+  baseApiUrl: "https://igcnx-amnis-dev.azurewebsites.net/",
 };
