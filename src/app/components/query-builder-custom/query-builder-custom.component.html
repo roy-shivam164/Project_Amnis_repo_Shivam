@@ -69,7 +69,7 @@
         <!-- button -->
         <div class="d-grid gap-2 justify-content-center text-center">
           <button
-            class="btn btn-primary text-center"
+            class="btn text-center"
             id="getSchemabtn"
             type="button"
             (click)="getSchemas()"
@@ -150,9 +150,9 @@
       </div>
     </div>
   </div>
-  <div class="row query-builder-row">
+  <div class="row query-builder-row card text-center col-md-12">
     <div *ngIf="queryBuilderShow">
-      <div class="card">
+      <div class="card text-center">
         <h2 class="card-header">Filter Criteria</h2>
         <div class="card-body" class="query-builder">
           <query-builder
@@ -181,7 +181,7 @@
     <div class="card-body">
       <div class="d-grid gap-2 justify-content-center text-center">
         <button
-          class="btn btn-primary text-center"
+          class="btn text-center generate-query-btn"
           id="getSchemabtn"
           type="button"
           (click)="generateQuery()"
