@@ -131,7 +131,7 @@ input[type="checkbox"] {
   box-shadow: 0 8px 8px -4px lightblue;
 }
 .result-row {
-  padding: 5px;
+  padding-bottom: 8%;
   height: 40%;
 }
 .query-builder-row {
@@ -150,6 +150,9 @@ h2 {
 }
 .result-table {
   height: 100%;
+}
+.result-card {
+  height: 3rem;
 }
 .button-text {
   padding: 10px;

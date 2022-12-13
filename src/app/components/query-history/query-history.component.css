@@ -40,6 +40,9 @@
   padding-bottom: 1%;
   background-color: whitesmoke;
 }
+[class*="history-box"] {
+  width: 100%;
+}
 .green-icon {
   color: green;
 }
