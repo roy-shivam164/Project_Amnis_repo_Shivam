@@ -17,7 +17,7 @@
     <!-- <div *ngIf="isMaps('maps')">
       <app-footer></app-footer>
     </div> -->
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </div>
   <!--  <div class="fixed-plugin">
         <div class="dropdown show-dropdown open show">
@@ -83,4 +83,7 @@
             </ul> 
         </div>
     </div> -->
+  <div *ngIf="isMaps('maps')">
+    <app-footer></app-footer>
+  </div>
 </div>

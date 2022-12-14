@@ -38,7 +38,6 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
   overflow-y: scroll;
   padding-bottom: 1%;
-  background-color: whitesmoke;
 }
 [class*="history-box"] {
   width: 100%;
@@ -60,7 +59,13 @@
 .history-list-card {
   padding-top: 1rem;
   border-radius: 5px;
+  box-shadow: 0 14px 40% rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 }
 .text-query {
   word-break: break-word;
+}
+.header-title {
+  font-weight: bold;
+  color: orange !important;
+  background-color: #5dcad8 !important;
 }

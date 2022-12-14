@@ -1,9 +1,14 @@
-#footer {
-  position: -webkit-sticky;
+/* #foot {
   bottom: 0;
   margin-top: 5%;
   text-align: center;
   width: 90%;
   border: 0;
   box-sizing: border-box;
-}
+} */
+
+/* footer {
+  margin-top: 5% !important;
+  position: absolute;
+  bottom: 0 !important;
+} */

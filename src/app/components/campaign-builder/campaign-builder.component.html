@@ -1,3 +1,126 @@
-<div class="home-page">
-  <img src="../../../assets/img/homepage.png" alt="homepage" />
-</div>
+<form id="campaign-builder-form">
+  <div class="container-fluid overflow-auto" style="height: 90vh">
+    <div class="row overflow-auto">
+      <div class="col-12 overflow-auto">
+        <div class="form-modal">
+          <h2 class="header">Campaign Builder</h2>
+          <div id="customer-data-form">
+            <form id="cust-data">
+              <label>Campaign Type</label>
+
+              <!-- <select class="form-select"></select> -->
+
+              <select
+                class="form-select"
+                #campaignData
+                id="campaignData"
+                (change)="getSelection(campaignData.value, campaignData)"
+              >
+                <option value="select" default>Select a Campaign Type</option>
+                <option
+                  [value]="type.campaignType"
+                  *ngFor="let type of campaignTypeData"
+                >
+                  {{ type.campaignType }}
+                </option>
+              </select>
+
+              <label>Name of Campaign</label>
+              <input id="campaignName" />
+
+              <label>SMS Template Name</label>
+
+              <select
+                class="form-select"
+                #smsTemp
+                id="smsTemp"
+                (change)="getSelection(smsTemp.value, smsTemp)"
+              >
+                <option value="select" default>Select SMS</option>
+                <option
+                  [value]="quiqMsgTemplate.message"
+                  *ngFor="let quiqMsgTemplate of quiqMsgTemplates"
+                >
+                  {{ quiqMsgTemplate.smsTemplateName }}
+                </option>
+              </select>
+              <label>Sms Message</label>
+              <textarea
+                class="query"
+                cols="30"
+                rows="2"
+                type="text"
+                disabled
+                [value]="smsMsg"
+              ></textarea>
+
+              <!-- <label> Campaign schedule time</label>
+              <input id="schedule_time" type="datetime-local" [(ngModel)]="scheduleDate"
+                  [ngModelOptions]="{ standalone: true }" [min]="todayDate" (change)="validateDate()" required /> -->
+
+              <label>Frequency of scheduling Campaign</label>
+
+              <select
+                class="form-select"
+                #campaignInterval
+                id="campaignInterval"
+                (change)="
+                  getSelection(campaignInterval.value, campaignInterval)
+                "
+              >
+                <option value="select" default>Select Interval</option>
+                <option
+                  [value]="campaignMapping.expression"
+                  *ngFor="let campaignMapping of campaignIntervalMapping"
+                >
+                  {{ campaignMapping.time_interval }}
+                </option>
+              </select>
+
+              <h3>Customer Filter Criteria</h3>
+              <hr />
+              <br />
+              <label>Query Name</label>
+
+              <select
+                class="form-select"
+                #query
+                id="query"
+                (change)="getSelection(query.value, query)"
+              >
+                <option value="select" default>Select a query</option>
+                <option [value]="data.query" *ngFor="let data of queryData">
+                  {{ data.queryName }}
+                </option>
+              </select>
+              <label>Query</label>
+              <textarea
+                class="query"
+                cols="30"
+                rows="2"
+                type="text"
+                disabled
+                [value]="selectedQuery"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="btn submit"
+                (click)="
+                  $event.stopPropagation();
+                  validateEmptyField()
+                    ? submit()
+                    : this.notification.error(
+                        'Please fill all the mandatory fields '
+                      )
+                "
+              >
+                Schedule Campaign
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -4,13 +4,13 @@
   padding: 0;
 }
 .card-header {
-  background-color: #20c1d5 !important;
+  background-color: #5dcad8 !important;
   padding: 1.5%;
 }
 
 #getSchemabtn {
-  background-color: #212529;
   padding: 1%;
+  background-color: #007bff !important;
   color: whitesmoke;
   border-radius: 8px;
 }
@@ -65,8 +65,15 @@ h2 {
   margin-bottom: 2%;
 }
 
+.header-title {
+  color: black !important;
+  font-weight: bold !important;
+  background-color: transparent !important;
+}
+
 .card-title {
   font-weight: bold;
+  color: #ffa400 !important;
 }
 .query-builder {
   padding: 5px;
@@ -156,4 +163,9 @@ h2 {
 }
 .button-text {
   padding: 10px;
+}
+
+#sql-result {
+  height: fit-content;
+  padding-bottom: 5% !important;
 }
