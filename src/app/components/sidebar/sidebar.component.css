@@ -8,3 +8,7 @@
 .active {
   background: #20c1d5 !important;
 }
+
+.sidebar-title {
+  font-weight: bold;
+}
