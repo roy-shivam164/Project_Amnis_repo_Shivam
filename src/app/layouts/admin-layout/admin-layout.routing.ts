@@ -6,6 +6,7 @@ import { FormComponent } from "app/components/form/form.component";
 import { CampaignBuilderComponent } from "app/components/campaign-builder/campaign-builder.component";
 import { QueryBuilderScreenComponent } from "app/components/query-builder-screen/query-builder-screen.component";
 import { LoginComponent } from "app/components/login/login.component";
+import { AnalyticsComponent } from "app/components/analytics/analytics.component";
 
 export const AdminLayoutRoutes: Routes = [
   // {
@@ -54,7 +55,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "querybuilder", component: QueryBuilderScreenComponent },
   { path: "scheduler", component: FormComponent },
   { path: "campaignbuilder", component: CampaignBuilderComponent },
-  { path: "analytics", component: CampaignBuilderComponent },
+  { path: "analytics", component: AnalyticsComponent },
   // { path: 'maps',           component: MapsComponent },
   // { path: 'notifications',  component: NotificationsComponent },
   { path: "signout", component: LoginComponent },

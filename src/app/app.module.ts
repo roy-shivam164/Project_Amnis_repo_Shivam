@@ -9,6 +9,8 @@ import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { KeysPipe } from "./services/keys.pipe";
 import { SqlFormatPipe } from "./pipes/sql-format.pipe";
+import { CampaignBuilderComponent } from "./components/campaign-builder/campaign-builder.component";
+import { NgChartsModule } from "ng2-charts";
 
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 
@@ -55,6 +57,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
+
     RouterModule,
     AppRoutingModule,
     MatInputModule,
@@ -70,6 +73,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserAnimationsModule,
     MatCardModule,
     NgxPaginationModule,
+
+    NgChartsModule,
     MatToolbarModule,
     MatDialogModule,
     MatTableModule,
@@ -85,6 +90,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SqlFormatPipe,
     QueryBuilderCustomComponent,
     QueryHistoryComponent,
+    DeleteDialogComponent,
+    CampaignBuilderComponent,
 
     QueryResultDialogComponent,
     KeysPipe,

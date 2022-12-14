@@ -6,8 +6,8 @@ import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 
-import { CampaignBuilderComponent } from "./campaign-builder/campaign-builder.component";
 import { LoginComponent } from "./login/login.component";
+import { AnalyticsComponent } from "./analytics/analytics.component";
 
 @NgModule({
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
@@ -15,8 +15,8 @@ import { LoginComponent } from "./login/login.component";
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    CampaignBuilderComponent,
     LoginComponent,
+    AnalyticsComponent,
   ],
   exports: [FooterComponent, NavbarComponent, SidebarComponent],
 })
