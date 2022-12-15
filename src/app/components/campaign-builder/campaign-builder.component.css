@@ -14,16 +14,17 @@ input[type="time"] {
 
 .header {
   padding: 1rem 0 1rem 0;
-  background-color: #08042b;
+  background-color: #5dcad8;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
-  color: #e8e8e8;
+  color: black;
 }
 
 .form-modal {
   position: relative;
   width: 50%;
+  /* padding: 8% 0; */
   height: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -31,8 +32,9 @@ input[type="time"] {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .form-modal button {
@@ -58,8 +60,8 @@ input[type="time"] {
 }
 
 .form-modal .submit {
-  background: #08042b;
-  color: rgb(228, 224, 224);
+  background: #007bff;
+  color: whitesmoke;
 }
 
 h3 {
@@ -74,6 +76,7 @@ hr {
   position: relative;
   width: 90%;
   height: auto;
+  /* background: #e8e8e8; */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -82,12 +85,16 @@ hr {
   position: relative;
   width: 100%;
   height: auto;
-  padding-bottom: 1em;
+  background: #e8e8e8;
+  padding-bottom: 2em;
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px;
 }
 
 #customer-data-form button {
   width: 100%;
   margin-top: 0.5em;
+
   padding: 0.6em;
 }
 
@@ -178,10 +185,16 @@ textarea::placeholder {
 select option {
   color: black;
 }
+label {
+  color: rgb(66, 65, 65);
+}
 
 .selectedQuery {
   max-height: 5rem;
   overflow-y: scroll;
+}
+#campaign-builder-form {
+  margin: 5% auto;
 }
 
 .-box-sd-effect:hover {
