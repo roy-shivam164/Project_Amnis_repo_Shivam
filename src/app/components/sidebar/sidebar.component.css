@@ -2,11 +2,13 @@
 
 .logo {
   border: none;
-  background-color: #20c1d5;
+  background-color: rgb(20, 20, 20);
 }
 
 .active {
-  background: #20c1d5 !important;
+  background: rgb(69, 69, 69) !important;
+  color: whitesmoke !important;
+  border-radius: 10px !important;
 }
 
 .sidebar-title {
