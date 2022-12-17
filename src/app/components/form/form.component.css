@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* * {
   font-family: "quicksand", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 } */
+
+* {
+  font-family: "Roboto", sans-serif;
+}
 
 body {
   background: #fff;
@@ -11,10 +16,12 @@ body {
 input[type="datetime-local"] {
   text-transform: uppercase;
 }
-
+label {
+  color: #222;
+}
 .header {
   padding: 1rem 0 1rem 0;
-  background-color: #20c1d5;
+  background-color: rgb(255, 164, 0);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
@@ -23,7 +30,7 @@ input[type="datetime-local"] {
 
 .form-modal {
   position: relative;
-  width: 45%;
+  width: 50%;
   height: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -61,8 +68,13 @@ input[type="datetime-local"] {
 }
 
 .form-modal .submit {
-  background: #20c1d5;
-  color: rgb(228, 224, 224);
+  background: white;
+  color: rgb(255, 164, 0);
+  border: 2px solid rgb(255, 164, 0);
+}
+.form-modal .submit:hover {
+  background: rgb(255, 164, 0);
+  color: white;
 }
 
 h3 {
@@ -174,20 +186,29 @@ textarea::placeholder {
 .form-select {
   /* background: #f7f7f7; */
   border-radius: 20px;
+  /* width: 60%; */
   font-size: 1em;
   /* font-weight: bold; */
   margin-bottom: 0.6em;
   margin-top: 0.6em;
   outline: none;
-  padding: 1.2em 1.7em 1.2em 1.7em;
+  padding: 1em 1.7em 1em 1.7em;
   position: relative;
   transition: 0.4s;
   border: none;
   box-shadow: none;
 }
 
+select {
+  -webkit-appearance: value;
+  -moz-appearance: value;
+  appearance: value;
+}
 select option {
   color: black;
+}
+.padding-on-left {
+  margin-left: 1%;
 }
 
 .mat-radio-group {

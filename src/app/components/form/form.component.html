@@ -79,21 +79,21 @@
                 />
                 <h3>Customer Filter Criteria</h3>
                 <hr />
-                <br />
+                <div class="d-flex align-items-center justify-content-evenly">
+                  <label>Query Name</label>
 
-                <label>Query Name</label>
-
-                <select
-                  class="form-select"
-                  #query
-                  id="query"
-                  (change)="getSelection(query.value, query)"
-                >
-                  <option value="select" default>Select a query</option>
-                  <option [value]="data.query" *ngFor="let data of queryData">
-                    {{ data.queryName }}
-                  </option>
-                </select>
+                  <select
+                    class="form-select"
+                    #query
+                    id="query"
+                    (change)="getSelection(query.value, query)"
+                  >
+                    <option value="select" default>Select a query</option>
+                    <option [value]="data.query" *ngFor="let data of queryData">
+                      {{ data.queryName }}
+                    </option>
+                  </select>
+                </div>
 
                 <label>Query</label>
                 <textarea
@@ -148,7 +148,7 @@
                 <br />
                 <label>Query Name</label>
                 <select
-                  class="form-select"
+                  class="form-select padding-on-left"
                   #query
                   id="query"
                   (change)="getSelection(query.value, query)"
@@ -158,6 +158,8 @@
                     {{ data.queryName }}
                   </option>
                 </select>
+                <br />
+
                 <label>Query</label>
                 <textarea
                   class="query"

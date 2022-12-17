@@ -44,8 +44,8 @@ export class AnalyticsComponent implements OnInit {
               {
                 label: "SmsSent",
                 data: this.smsSentArray,
-                backgroundColor: "blue",
-                borderColor: "blue",
+                backgroundColor: " rgb(255, 164, 0)",
+                borderColor: " rgb(255, 164, 0)",
                 fill: false,
               },
             ],

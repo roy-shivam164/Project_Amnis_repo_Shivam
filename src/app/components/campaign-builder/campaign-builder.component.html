@@ -1,52 +1,59 @@
 <form id="campaign-builder-form">
-  <div class="container-fluid overflow-auto" style="height: 90vh">
+  <div class="container-fluid" style="height: 90vh">
     <div class="row overflow-auto">
-      <div class="col-12 overflow-auto form-div">
+      <div class="col-12 form-div">
         <div class="form-modal">
           <h2 class="header">Campaign Builder</h2>
           <div id="customer-data-form">
             <form id="cust-data">
-              <label>Campaign Type</label>
+              <div class="d-flex align-items-center justify-content-evenly">
+                <label>Campaign Type</label>
 
-              <!-- <select class="form-select"></select> -->
+                <!-- <select class="form-select"></select> -->
 
-              <select
-                class="form-select"
-                #campaignData
-                id="campaignData"
-                (change)="getSelection(campaignData.value, campaignData)"
-              >
-                <option value="select" default>Select a Campaign Type</option>
-                <option
-                  [value]="type.campaignType"
-                  *ngFor="let type of campaignTypeData"
+                <select
+                  class="form-select padding-on-left"
+                  #campaignData
+                  id="campaignData"
+                  (change)="getSelection(campaignData.value, campaignData)"
                 >
-                  {{ type.campaignType }}
-                </option>
-              </select>
+                  <option value="select" default>Select a Campaign Type</option>
+                  <option
+                    [value]="type.campaignType"
+                    *ngFor="let type of campaignTypeData"
+                  >
+                    {{ type.campaignType }}
+                  </option>
+                </select>
+              </div>
 
-              <label>Name of Campaign</label>
-              <input id="campaignName" />
+              <div class="d-flex align-items-center justify-content-evenly">
+                <label>Name of Campaign</label>
+                <input id="campaignName" />
+              </div>
 
-              <label>SMS Template Name</label>
+              <div class="d-flex align-items-center justify-content-evenly">
+                <label>SMS Template Name</label>
 
-              <select
-                class="form-select"
-                #smsTemp
-                id="smsTemp"
-                (change)="getSelection(smsTemp.value, smsTemp)"
-              >
-                <option value="select" default>Select SMS</option>
-                <option
-                  [value]="quiqMsgTemplate.message"
-                  *ngFor="let quiqMsgTemplate of quiqMsgTemplates"
+                <select
+                  class="form-select padding-on-left"
+                  #smsTemp
+                  id="smsTemp"
+                  (change)="getSelection(smsTemp.value, smsTemp)"
                 >
-                  {{ quiqMsgTemplate.smsTemplateName }}
-                </option>
-              </select>
+                  <option value="select" default>Select SMS</option>
+                  <option
+                    [value]="quiqMsgTemplate.message"
+                    *ngFor="let quiqMsgTemplate of quiqMsgTemplates"
+                  >
+                    {{ quiqMsgTemplate.smsTemplateName }}
+                  </option>
+                </select>
+              </div>
+
               <label>Sms Message</label>
               <textarea
-                class="query"
+                class="query padding-on-left"
                 cols="30"
                 rows="2"
                 type="text"
@@ -61,7 +68,7 @@
               <label>Frequency of scheduling Campaign</label>
 
               <select
-                class="form-select"
+                class="form-select padding-on-left"
                 #campaignInterval
                 id="campaignInterval"
                 (change)="
@@ -77,25 +84,29 @@
                 </option>
               </select>
 
-              <h3>Customer Filter Criteria</h3>
+              <h3 style="font-weight: bold">Customer Filter Criteria</h3>
               <hr />
               <br />
-              <label>Query Name</label>
 
-              <select
-                class="form-select"
-                #query
-                id="query"
-                (change)="getSelection(query.value, query)"
-              >
-                <option value="select" default>Select a query</option>
-                <option [value]="data.query" *ngFor="let data of queryData">
-                  {{ data.queryName }}
-                </option>
-              </select>
+              <div class="d-flex align-items-center justify-content-evenly">
+                <label>Query Name</label>
+
+                <select
+                  class="form-select padding-on-left"
+                  #query
+                  id="query"
+                  (change)="getSelection(query.value, query)"
+                >
+                  <option value="select" default>Select a query</option>
+                  <option [value]="data.query" *ngFor="let data of queryData">
+                    {{ data.queryName }}
+                  </option>
+                </select>
+              </div>
+
               <label>Query</label>
               <textarea
-                class="query"
+                class="query padding-on-left"
                 cols="30"
                 rows="2"
                 type="text"

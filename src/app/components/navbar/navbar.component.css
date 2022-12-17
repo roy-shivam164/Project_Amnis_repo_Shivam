@@ -1,6 +1,6 @@
 .nav-title {
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 #nav {
   background-color: rgb(69, 69, 69) !important;
