@@ -59,6 +59,7 @@
 .history-list-card {
   padding-top: 1rem;
   border-radius: 5px;
+  height: 60%;
   box-shadow: 0 14px 40% rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 }
 .text-query {

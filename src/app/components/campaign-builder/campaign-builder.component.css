@@ -28,7 +28,8 @@ input[type="time"] {
 
 .form-modal {
   position: relative;
-  width: 60%;
+  padding-bottom: 2%;
+  width: 55%;
   /* padding: 8% 0; */
   height: auto;
   left: 50%;
@@ -49,6 +50,9 @@ input[type="time"] {
   margin-left: 1%;
 }
 
+.form-div {
+  margin-bottom: 3%;
+}
 .form-modal button {
   cursor: pointer;
   position: relative;
@@ -216,7 +220,8 @@ label {
   overflow-y: scroll;
 }
 #campaign-builder-form {
-  margin: 5% auto;
+  margin: 5%;
+  margin-bottom: 5% !important;
 }
 
 .-box-sd-effect:hover {
@@ -234,7 +239,7 @@ label {
 }
 @media only screen and (max-width: 500px) {
   .form-modal {
-    width: 100%;
+    width: 100% !important;
   }
 }
 
