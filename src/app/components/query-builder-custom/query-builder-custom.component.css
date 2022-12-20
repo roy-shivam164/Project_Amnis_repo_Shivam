@@ -145,7 +145,7 @@ input[type="checkbox"] {
 }
 .result-row {
   /* padding-bottom: 8%; */
-  height: 40%;
+  height: 30%;
 }
 .query-builder-row {
   margin: 1rem 0;
@@ -173,5 +173,9 @@ h2 {
 
 #sql-result {
   height: fit-content;
+  margin: 5% auto;
   padding-bottom: 5% !important;
+}
+#table-heading {
+  font-weight: bold;
 }
