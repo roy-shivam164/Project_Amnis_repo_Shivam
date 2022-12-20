@@ -9,6 +9,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./campaign-builder.component.css"],
 })
 export class CampaignBuilderComponent implements OnInit {
+  test: Date = new Date();
   constructor(
     private dbservice: DbService,
     private http: HttpClient,

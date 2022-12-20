@@ -146,7 +146,7 @@ export class AdminLayoutComponent implements OnInit {
   ngAfterViewInit() {
     this.runOnRouteChange();
   }
-  isMaps(path) {
+  isQuery(path) {
     var titlee = this.location.prepareExternalUrl(this.location.path());
     titlee = titlee.slice(1);
     if (path == titlee) {

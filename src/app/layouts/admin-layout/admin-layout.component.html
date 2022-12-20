@@ -17,9 +17,12 @@
     <!-- <div *ngIf="isMaps('maps')">
       <app-footer></app-footer>
     </div> -->
-    <div *ngIf="isMaps('/querybuilder')">
+    <div *ngIf="isQuery('/querybuilder')">
       <app-footer></app-footer>
     </div>
+  </div>
+  <div *ngIf="isQuery('/campaignbuilder')">
+    <app-footer></app-footer>
   </div>
   <!--  <div class="fixed-plugin">
         <div class="dropdown show-dropdown open show">
