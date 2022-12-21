@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { DbService } from '../../services/db.service';
 import { environment } from '../../../environments/environment';
+import { LoginRequestService } from 'app/services/login-request.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -12,6 +14,8 @@ import { environment } from '../../../environments/environment';
 export class FormComponent implements OnInit {
   constructor(
     private dbservice: DbService,
+    private router: Router,
+    private loginUser: LoginRequestService,
     private http: HttpClient,
     public notification: ToastrService
   ) {}
@@ -35,6 +39,10 @@ export class FormComponent implements OnInit {
   result: any;
 
   ngOnInit(): void {
+    if (this.loginUser.isTokenExpired()) {
+      this.logout();
+      // call logout method/dispatch logout event
+    }
     this.dbservice
       .runStoredProcedure({
         procedure: `dbo.GetAllEmailTemplateId`,
@@ -68,6 +76,15 @@ export class FormComponent implements OnInit {
     console.log(event);
     this.containerValue = event.value;
   }
+  
+  logout() {
+    localStorage.removeItem('token');
+    console.log("logout called");
+    
+    this.router.navigate(['login']);
+
+  }
+
 
   getSelection(option: any, type: HTMLSelectElement) {
     console.log(type.id);

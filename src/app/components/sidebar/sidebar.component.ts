@@ -1,4 +1,15 @@
 import { Component, OnInit } from "@angular/core";
+import { Routes, RouterModule, RouterLink } from "@angular/router";
+import { Observable } from "rxjs";
+
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from "@angular/forms";
+import { LoginRequestService } from "app/services/login-request.service";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -31,7 +42,7 @@ export const ROUTES: RouteInfo[] = [
   // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
   // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
   {
-    path: "/signout",
+    path: "/login",
     title: "Sign out",
     icon: "logout",
     class: "active-pro",
@@ -45,12 +56,35 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  title: string = "Sign out";
+  // isLogout:boolean=false;
 
-  constructor() {}
+  constructor(private router: Router, private loginUser: LoginRequestService) {}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
+    if (!this.loginUser.isLoggedIn()) {
+      this.logout();
+      // call logout method/dispatch logout event
+    }
   }
+
+  callFunc(title: string) {
+    if (this.title == title) {
+      console.log(title);
+
+      this.logout();
+    }
+  }
+
+  logout() {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("refreshToken");
+    console.log("logout called");
+
+    this.router.navigate(["login"]);
+  }
+
   isMobileMenu() {
     if ($(window).width() > 991) {
       return false;

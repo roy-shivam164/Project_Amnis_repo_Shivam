@@ -4,6 +4,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { DbService } from "../../services/db.service";
 import { LoaderService } from "../../services/loader.service";
 import { QueryBuilderCustomComponent } from "../query-builder-custom/query-builder-custom.component";
+import { LoginRequestService } from "app/services/login-request.service";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 @Component({
   selector: "app-query-builder-screen",
@@ -15,7 +17,9 @@ export class QueryBuilderScreenComponent implements OnInit {
   constructor(
     public loaderService: LoaderService,
     private dbService: DbService,
+    private router: Router,
     private notification: ToastrService,
+    private loginUser: LoginRequestService,
     private spinner: NgxSpinnerService
   ) {}
   queryHistoryData: any;
@@ -42,12 +46,22 @@ export class QueryBuilderScreenComponent implements OnInit {
     console.log($event, "schema");
     this.tableSchema = $event;
   }
+  logout() {
+    localStorage.removeItem("token");
+    console.log("logout called");
+
+    this.router.navigate(["login"]);
+  }
   // chengeTab($event:string){
   //   console.log($event)
   //   this.isPageSelected = $event
   // }
   ngOnInit() {
     this.spinner.show();
+    if (this.loginUser.isTokenExpired()) {
+      this.logout();
+      // call logout method/dispatch logout event
+    }
 
     setTimeout(() => {
       /** spinner ends after 5 seconds */

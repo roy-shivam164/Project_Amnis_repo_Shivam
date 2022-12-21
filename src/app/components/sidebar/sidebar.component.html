@@ -81,6 +81,7 @@
   <ul class="nav">
     <li *ngFor="let menuItem of menuItems" class="{{ menuItem.class }}">
       <a
+        (click)="callFunc(menuItem.title)"
         class="nav-link"
         [routerLink]="[menuItem.path]"
         routerLinkActive="active"

@@ -3,10 +3,11 @@ import { MatDialog } from "@angular/material/dialog";
 import { QueryBuilderConfig } from "angular2-query-builder";
 import { ToastrService } from "ngx-toastr";
 import { BootstrapNotify } from "bootstrap-notify";
-
+import { LoginRequestService } from 'app/services/login-request.service';
 import { DbService } from "../../services/db.service";
 import { QueryResultDialogComponent } from "../query-result-dialog/query-result-dialog.component";
 import { SaveQueryDialogComponent } from "../save-query-dialog/save-query-dialog.component";
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: "query-builder-custom",
@@ -19,6 +20,8 @@ export class QueryBuilderCustomComponent implements OnInit {
   constructor(
     public dbService: DbService,
     public notification: ToastrService,
+    private loginUser: LoginRequestService,
+    private router: Router,
     public dialog: MatDialog
   ) {}
   @Output() getHistory: EventEmitter<any> = new EventEmitter();
@@ -353,10 +356,23 @@ export class QueryBuilderCustomComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.loginUser.isTokenExpired()) {
+      this.logout();
+      // call logout method/dispatch logout event
+    }
     // this.stringJson = JSON.stringify(this.data);
     // this.stringObj = JSON.parse(this.stringJson);
     // console.log(this.stringObj);
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log("logout called");
+    
+    this.router.navigate(['login']);
+
+  }
+
   async reloadTable() {
     this.executeCardShow = false;
     await setTimeout(() => (this.executeCardShow = true));

@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { DbService } from '../../services/db.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { QueryResultDialogComponent } from '../query-result-dialog/query-result-dialog.component';
+import { LoginRequestService } from 'app/services/login-request.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-query-history',
@@ -19,7 +21,7 @@ export class QueryHistoryComponent implements OnInit{
   currentPage = 1;
   filteredData:any;
   queryBuilderComponentRef:any
-  constructor(private notification:ToastrService,public dialog: MatDialog,private dbService: DbService) {
+  constructor(private router: Router, private notification:ToastrService,private loginUser: LoginRequestService,public dialog: MatDialog,private dbService: DbService) {
    }
   ngOnInit(): void {
   }
@@ -32,6 +34,16 @@ export class QueryHistoryComponent implements OnInit{
     navigator.clipboard.writeText(sqlQuery.query);
     this.notification.success("Coppied to clipboard")
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log("logout called");
+    
+    this.router.navigate(['login']);
+
+  }
+  
+
   openDialogDelete(queryData: any){
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: "fit-content"
