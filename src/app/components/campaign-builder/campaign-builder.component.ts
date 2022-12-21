@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { DbService } from "../../services/db.service";
 import { environment } from "../../../environments/environment";
 import { ToastrService } from "ngx-toastr";
+import { LoginRequestService } from 'app/services/login-request.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: "app-campaign-builder",
   templateUrl: "./campaign-builder.component.html",
@@ -13,6 +15,7 @@ export class CampaignBuilderComponent implements OnInit {
   constructor(
     private dbservice: DbService,
     private http: HttpClient,
+    private router: Router, private loginUser: LoginRequestService,
     public notification: ToastrService
   ) {}
 
@@ -37,6 +40,11 @@ export class CampaignBuilderComponent implements OnInit {
   campaignInterval: any = null;
 
   ngOnInit(): void {
+
+    if (!this.loginUser.isLoggedIn()) {
+      this.logout();
+      // call logout method/dispatch logout event
+    }
     // this.dbservice
     //   .runStoredProcedure({
     //     procedure: `dbo.`,
@@ -87,6 +95,14 @@ export class CampaignBuilderComponent implements OnInit {
         console.log(res);
         this.campaignIntervalMapping = res;
       });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log("logout called");
+    
+    this.router.navigate(['login']);
+
   }
 
   submit() {

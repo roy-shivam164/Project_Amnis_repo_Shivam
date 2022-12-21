@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginRequestService } from 'app/services/login-request.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef,private loginUser: LoginRequestService, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -24,6 +25,10 @@ export class NavbarComponent implements OnInit {
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+      //   if (this.loginUser.isTokenExpired()) {
+    //     this.logout();
+    //     // call logout method/dispatch logout event
+    //   }
       this.router.events.subscribe((event) => {
         this.sidebarClose();
          var $layer: any = document.getElementsByClassName('close-layer')[0];
@@ -45,6 +50,15 @@ export class NavbarComponent implements OnInit {
 
         this.sidebarVisible = true;
     };
+
+    logout() {
+        localStorage.removeItem('token');
+        console.log("logout called");
+        
+        this.router.navigate(['login']);
+    
+      }
+
     sidebarClose() {
         const body = document.getElementsByTagName('body')[0];
         this.toggleButton.classList.remove('toggled');
