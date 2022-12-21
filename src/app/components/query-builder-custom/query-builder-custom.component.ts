@@ -14,6 +14,8 @@ import { SaveQueryDialogComponent } from "../save-query-dialog/save-query-dialog
   styleUrls: ["./query-builder-custom.component.css"],
 })
 export class QueryBuilderCustomComponent implements OnInit {
+  stringJson: string;
+  stringObj: any;
   constructor(
     public dbService: DbService,
     public notification: ToastrService,
@@ -27,7 +29,6 @@ export class QueryBuilderCustomComponent implements OnInit {
     fields: {},
   };
 
-  ngOnInit() {}
   expression: string = "";
   tablesData: any[] = [];
   schemaData: any;
@@ -302,8 +303,17 @@ export class QueryBuilderCustomComponent implements OnInit {
         procedure: `${this.tableSchema}.getSampleData`,
         data: { queryRaw: query },
       })
-      .subscribe(
-        (res) => {
+      .subscribe({
+        next: (res) => {
+          //code for SQL Query table starts here(SHIVAM.RAI)
+          this.data = res;
+          this.stringJson = JSON.stringify(this.data);
+
+          this.stringObj = JSON.parse(this.stringJson);
+          console.log(this.stringObj);
+
+          //code for SQL Query table ends here(SHIVAM.RAI)
+
           this.notification.success("Query Successful");
           // this.openDialog(res);
           console.log(res);
@@ -311,6 +321,7 @@ export class QueryBuilderCustomComponent implements OnInit {
           if (res.length) {
             this.tableColumnResult = Object.keys(res[0]);
             this.data = [...res];
+
             this.reloadTable();
           } else {
             this.data = [];
@@ -318,10 +329,33 @@ export class QueryBuilderCustomComponent implements OnInit {
             this.reloadTable();
           }
         },
-        (err) => {
-          this.notification.error("Error!", err.message);
-        }
-      );
+        error: (err) => this.notification.error("Error!", err.message),
+
+        // (res) => {
+        //   this.notification.success("Query Successful");
+        //   // this.openDialog(res);
+        //   console.log(res);
+        //   this.resultantQuery = query;
+        //   if (res.length) {
+        //     this.tableColumnResult = Object.keys(res[0]);
+        //     this.data = [...res];
+        //     this.reloadTable();
+        //   } else {
+        //     this.data = [];
+        //     this.tableColumnResult = [];
+        //     this.reloadTable();
+        //   }
+        // },
+        // (err) => {
+        //   this.notification.error("Error!", err.message);
+        // }
+      });
+  }
+
+  ngOnInit() {
+    // this.stringJson = JSON.stringify(this.data);
+    // this.stringObj = JSON.parse(this.stringJson);
+    // console.log(this.stringObj);
   }
   async reloadTable() {
     this.executeCardShow = false;

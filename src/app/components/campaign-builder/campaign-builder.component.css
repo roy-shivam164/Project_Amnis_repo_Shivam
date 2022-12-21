@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* * {
   font-family: "quicksand", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 } */
 
+* {
+  font-family: "Roboto", sans-serif;
+}
 body {
   background: #fff;
 }
@@ -14,7 +19,7 @@ input[type="time"] {
 
 .header {
   padding: 1rem 0 1rem 0;
-  background-color: #5dcad8;
+  background-color: rgb(255, 164, 0);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
@@ -23,7 +28,8 @@ input[type="time"] {
 
 .form-modal {
   position: relative;
-  width: 50%;
+  padding-bottom: 2%;
+  width: 55%;
   /* padding: 8% 0; */
   height: auto;
   left: 50%;
@@ -36,7 +42,17 @@ input[type="time"] {
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   margin: 2rem 0;
 }
+#campaignName {
+  width: 75%;
+  margin-left: 1%;
+}
+.padding-on-left {
+  margin-left: 1%;
+}
 
+.form-div {
+  margin-bottom: 3%;
+}
 .form-modal button {
   cursor: pointer;
   position: relative;
@@ -59,9 +75,19 @@ input[type="time"] {
   margin-top: 0.5em;
 }
 
-.form-modal .submit {
+/* .form-modal .submit {
   background: #007bff;
   color: whitesmoke;
+} */
+
+.form-modal .submit {
+  background: white;
+  color: rgb(255, 164, 0);
+  border: 2px solid rgb(255, 164, 0);
+}
+.form-modal .submit:hover {
+  background: rgb(255, 164, 0);
+  color: white;
 }
 
 h3 {
@@ -174,8 +200,8 @@ textarea::placeholder {
   /* font-weight: bold; */
   margin-bottom: 0.6em;
   margin-top: 0.6em;
-  outline: none;
-  padding: 1.2em 1.7em 1.2em 1.7em;
+  /* outline: none; */
+  padding: 1em 1.7em 1em 1.7em;
   position: relative;
   transition: 0.4s;
   border: none;
@@ -194,7 +220,8 @@ label {
   overflow-y: scroll;
 }
 #campaign-builder-form {
-  margin: 5% auto;
+  margin: 5%;
+  margin-bottom: 5% !important;
 }
 
 .-box-sd-effect:hover {
@@ -212,7 +239,7 @@ label {
 }
 @media only screen and (max-width: 500px) {
   .form-modal {
-    width: 100%;
+    width: 100% !important;
   }
 }
 

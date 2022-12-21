@@ -1,9 +1,9 @@
 .nav-title {
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 #nav {
-  background-color: #5dcad8 !important;
+  background-color: rgb(69, 69, 69) !important;
   padding: 14px 0;
-  color: black;
+  color: whitesmoke;
 }

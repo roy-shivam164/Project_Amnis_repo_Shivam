@@ -3,8 +3,17 @@
   [class*="col-"] {
     width: 100%;
   }
+
+  [class*="col-lg-3"] {
+    margin-top: 50% !important;
+
+    width: 100%;
+  }
 }
 
 #query-builder-custom {
   margin-bottom: 3%;
+}
+#footer {
+  bottom: 0 !important;
 }
