@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent implements OnInit {
+  test: Date = new Date();
   constructor(private router: Router, private loginUser: LoginRequestService) {}
   startAnimationForLineChart(chart) {
     let seq: any, delays: any, durations: any;

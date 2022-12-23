@@ -1,19 +1,28 @@
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
+/* @media only screen and (max-width: 768px) { */
+/* For mobile phones: */
+/* [class*="col-"] {
     width: 100%;
-  }
+  } */
 
-  [class*="col-lg-3"] {
+/* [class*="col-lg-3"] {
     margin-top: 50% !important;
 
     width: 100%;
   }
-}
+} */
 
 #query-builder-custom {
   margin-bottom: 3%;
 }
 #footer {
-  bottom: 0 !important;
+  position: relative;
+  bottom: 0;
+  margin-top: 25% !important;
+  width: 90%;
+  /* Height of the footer*/
+  height: 40px;
 }
+
+/* .wrapper {
+  position: absolute;
+} */

@@ -152,10 +152,10 @@ export class AdminLayoutComponent implements OnInit {
     if (path == titlee) {
       // console.log(titlee);
       return false;
-    } else {
-      // console.log(titlee);
-      return true;
-    }
+    } // else {
+    // console.log(titlee);
+    //return true;
+    //}
   }
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {

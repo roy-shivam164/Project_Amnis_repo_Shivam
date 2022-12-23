@@ -145,7 +145,7 @@ export class LoginRequestService {
           this.logout();
         }
       });
-    }, 6000);
+    }, 600000);
   }
 
   // logout() {

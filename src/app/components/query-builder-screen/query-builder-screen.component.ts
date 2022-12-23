@@ -13,6 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
   styleUrls: ["./query-builder-screen.component.css"],
 })
 export class QueryBuilderScreenComponent implements OnInit {
+  test: Date = new Date();
   @ViewChild(QueryBuilderCustomComponent) child!: QueryBuilderCustomComponent;
   constructor(
     public loaderService: LoaderService,

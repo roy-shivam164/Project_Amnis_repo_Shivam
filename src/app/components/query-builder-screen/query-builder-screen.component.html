@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid justify-content-center align-items-center wrapper">
   <ngx-spinner
     bdColor="rgba(0, 0, 0, 0.8)"
     size="medium"
@@ -9,13 +9,13 @@
   >
   <div class="row">
     <!-- <app-navbar (navigate)="chengeTab($event)"></app-navbar> -->
-    <div class="col-lg-9 col-sm-6" id="query-builder-custom">
+    <div class="col-lg-9 col-md-12 col-sm-12" id="query-builder-custom">
       <query-builder-custom
         (getHistory)="getHistoryData($event)"
         (getSchema)="getScehma($event)"
       ></query-builder-custom>
     </div>
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-3 col-md-12 col-sm-12">
       <app-query-history
         [queryHistorydata]="queryHistoryData"
         [tableSchema]="tableSchema"
@@ -32,4 +32,12 @@
             <app-query-history [queryHistorydata]="queryHistoryData" ></app-query-history>
         </div>
     </div> -->
+  <footer class="text-center text-lg-start text-muted footer-foot" id="footer">
+    <div class="text-center p-3">
+      Copyright &copy;
+      {{ test | date : "yyyy" }}
+      <a href="https://www.cginfinity.com" target="_blank">CG Infinity</a>
+    </div>
+  </footer>
 </div>
+<!-- <app-footer id="footer"></app-footer> -->
